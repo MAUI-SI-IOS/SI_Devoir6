@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Devoir3_builder.State;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,10 +7,24 @@ namespace Devoir3_builder.data
 {
     public class Pizza
     {
+
+        public required IPizzaState state;
+
+        Grandeur grandeur;
         string pate;
         string sauce;
         string garnitures;
+        decimal prix;
 
+        public void setPrix(decimal prix)
+        {
+            this.prix = prix;
+        }
+
+        public void setGrandeur(Grandeur grandeur)
+        {
+            this.grandeur = grandeur;
+        }
         public void setPate(string pate)
         {
             this.pate = pate;
@@ -25,7 +40,22 @@ namespace Devoir3_builder.data
 
         public override string ToString() // pour tester
         {
-            return $"{pate}, {sauce}, {garnitures}";
+            return $@" Pizza:
+                        Grandeur: {grandeur},
+                        Pate: {pate},
+                        Sauce: {sauce},
+                        Garnitures: {garnitures},
+                        Prix: {prix}
+                    ";
+        }
+
+
+
+       public enum Grandeur
+        {
+            Petite,
+            Moyenne,
+            Grande
         }
     }
 }
