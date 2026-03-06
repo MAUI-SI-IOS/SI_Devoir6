@@ -7,10 +7,10 @@ namespace Devoir3_builder.builder
 {
     public interface IPizzaBuilder
     {
+        public IPizzaBuilder setSize(Pizza.Grandeur grandeur);
         public IPizzaBuilder makeDough();
         public IPizzaBuilder makeSauce();
         public IPizzaBuilder makeToppings();
-
         public Pizza make();
     }
 }

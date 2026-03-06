@@ -5,31 +5,33 @@ using System.Text;
 
 namespace Devoir3_builder.builder
 {
-    public class PizzaEspagnolBuilder : IPizzaBuilder
+    public class PizzaHawaiienneBuilder : IPizzaBuilder
     {
         Pizza pizza;
 
-        public PizzaEspagnolBuilder()
+        public PizzaHawaiienneBuilder()
         {
             this.pizza = new Pizza();
         }
         public IPizzaBuilder makeDough()
         {
-            this.pizza.setPate("pate espagnol");
+            this.pizza.setPate("pate Hawaiienne");
             return this;
         }
 
         public IPizzaBuilder makeSauce()
         {
-            this.pizza.setSauce("sauce espagnol");
+            this.pizza.setSauce("sauce Hawaiienne");
             return this;
         }
 
         public IPizzaBuilder makeToppings()
         {
-            this.pizza.setGarniture("garnitures espagnol");
+            this.pizza.setGarniture("garnitures Hawaiienne");
             return this;
         }
+
+
         public Pizza make()
         {
             return this.pizza;

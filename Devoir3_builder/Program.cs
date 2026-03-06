@@ -25,7 +25,7 @@ void test()
     Debug.Assert("pate italien, sauce italien, garnitures italien" == pizza.ToString());
 
     //espagnol
-    PizzaEspagnolBuilder espagnolBuilder = new PizzaEspagnolBuilder();
+    PizzaHawaiienneBuilder espagnolBuilder = new PizzaHawaiienneBuilder();
     director = new Director(espagnolBuilder);
     pizza = director.make();
 
