@@ -1,40 +1,53 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Devoir3_builder.builder;
 using Devoir3_builder.data;
-using System.Diagnostics;
+using Devoir3_builder.Handler;
+using Devoir6.decorator;
+using Devoir3_builder.Observer;
+
 test();
 
 
 void test()
 {
-    Director director;
-    Pizza pizza;
 
-    //colombienne
-    PizzaColombienneBuilder colombienneBuilder = new PizzaColombienneBuilder();
-    director = new Director(colombienneBuilder);
-    pizza = director.make();
+  //1- construire une pizza
+  var colombienneBuilder = new PizzaColombienneBuilder();
+  var director = new Director(colombienneBuilder);
+  var simplePizza = director.make();
 
-    Debug.Assert("pate colombienne, sauce colombienne, garnitures colombienne" == pizza.ToString());
+  //2- ajouter 2 extra Decorator
+  var cheesyPizza = new ExtraCheeseDecorator(simplePizza); 
+  var finalPizza  = new GluttenFreeDecorator(cheesyPizza); 
+  Console.WriteLine("Pizza ordered"+finalPizza.GetDescription());
 
-    //italien
-    PizzaItalienneBuilder italienBuilder = new PizzaItalienneBuilder();
-    director = new Director(italienBuilder);
-    pizza = director.make();
+  var order  = new PizzaOrder(finalPizza);
 
-    Debug.Assert("pate italien, sauce italien, garnitures italien" == pizza.ToString());
+  //3- attacher 3 observer 
+  var customerApp = new CustomerAppObserver();
+  var deliveryApp = new DeliveryAppObserver();
+  var kitchenScreen = new KitchenScreenObserver();
 
-    //espagnol
-    PizzaHawaiienneBuilder espagnolBuilder = new PizzaHawaiienneBuilder();
-    director = new Director(espagnolBuilder);
-    pizza = director.make();
+  order.observers.Add(customerApp);
+  order.observers.Add(deliveryApp);
+  order.observers.Add(kitchenScreen);
 
-    Debug.Assert("pate espagnol, sauce espagnol, garnitures espagnol" == pizza.ToString());
-    
-    //senegalaise
-    PizzaSenegalaiseBuilder senegalBuilder = new PizzaSenegalaiseBuilder();
-    director = new Director(senegalBuilder);
-    pizza = director.make();
 
-    Debug.Assert("pate senegalaise, sauce senegalaise, garnitures senegalaise" == pizza.ToString());
+  //4- faire la chain & executer la chain
+  var _1 = new ValidateOrderHandler();
+  var _2 = new PrepareHandler();
+  var _3 = new BakeHandler();
+  var _4 = new CutHandler();
+  var _5 = new PackHandler();
+  var _6 = new DispatchHandler(); 
+  _5.Next = _6;
+  _4.Next = _5;
+  _3.Next = _4;
+  _2.Next = _3;
+  _1.Next = _2;
+
+  _1.Handle(order);
+  
+  Console.WriteLine("------------- Done --------------");
+
 }
