@@ -1,5 +1,4 @@
 ﻿using Devoir3_builder.data;
-using Devoir3_builder.Data;
 using Devoir3_builder.State;
 using System;
 using System.Collections.Generic;
@@ -19,9 +18,9 @@ namespace Devoir3_builder.Handler
             Debug.Assert(order.state is not null, "Pizza state cannot be null");
             Debug.Assert(order.state is Cutted, "Pizza must be cutted before we can pack it");
 
-            Console.WriteLine("Packing pizza...");
 
             order.state.Process(order);
+            order.Notify("pizza est entrain d'etre packed");
 
             return next is not null ? next.Handle(order) : order;
         }

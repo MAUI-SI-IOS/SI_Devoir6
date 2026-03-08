@@ -1,5 +1,5 @@
-﻿using Devoir3_builder.Data;
-using Devoir3_builder.State;
+﻿using Devoir3_builder.State;
+using Devoir3_builder.data;
 using System.Diagnostics;
 
 namespace Devoir3_builder.Handler
@@ -15,10 +15,10 @@ namespace Devoir3_builder.Handler
             Debug.Assert(order.state is not null);
             Debug.Assert(order.state is Validated);
 
-            //TODO: implementer la logique de préparation de la pizza
 
             order.state.Process(order);
-
+            order.Notify("pizza entrain d'etre preparer");
+            Console.WriteLine();
             return next is not null ? next.Handle(order) : order;
         }
     }
