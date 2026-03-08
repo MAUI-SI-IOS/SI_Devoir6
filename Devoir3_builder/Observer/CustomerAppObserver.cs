@@ -4,8 +4,7 @@
     {
         public void Notify(string message)
         {
-            // TODO: Implement the logic to send a notification to the customer app with the provided message.
-            throw new NotImplementedException();
+           Console.WriteLine("Customer app: "+ message); 
         }
     }
 }

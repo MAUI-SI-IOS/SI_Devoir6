@@ -8,8 +8,7 @@ namespace Devoir3_builder.Observer
     {
         public void Notify(string message)
         {
-            // TODO: Implement the logic to send a notification to the delivery app with the provided message.
-            throw new NotImplementedException();
+            Console.WriteLine("delivery app: "+ message);   
         }
     }
 }
