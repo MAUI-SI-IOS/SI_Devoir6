@@ -11,6 +11,7 @@ namespace Devoir3_builder.builder
         public IPizzaBuilder makeDough();
         public IPizzaBuilder makeSauce();
         public IPizzaBuilder makeToppings();
+        public IPizzaBuilder makePrix();
         public Pizza make();
     }
 }

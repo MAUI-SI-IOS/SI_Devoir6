@@ -32,6 +32,12 @@ namespace Devoir3_builder.builder
             return this;
         }
 
+        public IPizzaBuilder makePrix()
+        {
+            this.pizza.setPrix(20);
+            return this;
+        }
+
         public Pizza make()
         {
             return this.pizza;

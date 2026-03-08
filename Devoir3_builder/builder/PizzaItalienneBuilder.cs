@@ -30,6 +30,11 @@ namespace Devoir3_builder.builder
             this.pizza.setGarniture("garnitures italien");
             return this;
         }
+        public IPizzaBuilder makePrix()
+        {
+            this.pizza.setPrix(20);
+            return this;
+        }
         public Pizza make()
         {
             return this.pizza;

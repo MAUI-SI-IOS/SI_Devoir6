@@ -19,6 +19,7 @@ namespace Devoir3_builder.builder
             return builder.makeDough()
                           .makeSauce()
                           .makeToppings()
+                          .makePrix()
                           .make();
         }
     }
