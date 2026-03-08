@@ -8,9 +8,17 @@ namespace Devoir3_builder.data
     {
         public IPizzaDecorator pizza;
         public IOrderState state;
-        private List<INotify> observers = [];
+        public List<INotify> observers = []; 
+        
+        public PizzaOrder(IPizzaDecorator pizza){
+          this.pizza = pizza;
+          state = Created.Instance;
+        }
 
-
-
+        public void Notify(string message){
+          foreach(var o in observers){
+              o.Notify(message);
+          }
+        }
     }
 }

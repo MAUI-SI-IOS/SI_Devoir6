@@ -5,9 +5,6 @@ namespace Devoir3_builder.data
 {
     public class Pizza:IPizzaDecorator
     {
-
-        public required IOrderState state;
-
         Grandeur grandeur;
         string pate;
         string sauce;
@@ -36,11 +33,11 @@ namespace Devoir3_builder.data
             this.garnitures = garnitures;
         }
         public int GetPrice() {
-          return (this.pizza != null ? pizza.GetPrice() : 0) + prix;
+          return prix;
 
         }
         public string GetDescription() {
-          return (this.pizza != null ? pizza.GetDescription() : 0) + this.ToString();
+          return this.ToString();
 
         }
 
