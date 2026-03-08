@@ -1,5 +1,4 @@
 ﻿using Devoir3_builder.data;
-using Devoir3_builder.Data;
 using System.Diagnostics;
 
 namespace Devoir3_builder.State

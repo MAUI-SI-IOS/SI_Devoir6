@@ -1,6 +1,4 @@
-﻿
-using Devoir3_builder.data;
-using Devoir3_builder.Data;
+﻿using Devoir3_builder.data;
 
 namespace Devoir3_builder.State
 {
@@ -9,14 +7,10 @@ namespace Devoir3_builder.State
         private Validated() { }
         public static readonly Validated Instance = new Validated();
 
-        public void Process(Pizza pizza)
-        {
-            pizza.state = Prepared.Instance;
-        }
-
         public void Process(PizzaOrder order)
         {
             order.state = Prepared.Instance;
         }
+
     }
 }
