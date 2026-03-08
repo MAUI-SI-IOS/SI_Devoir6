@@ -14,6 +14,6 @@ public class ExtraCheeseDecorator: IPizzaDecorator {
     return pizza.GetPrice() + 10;
   }
   public string GetDescription(){
-    return "extra cheese" + pizza.GetDescription();
+    return "extra cheese " + pizza.GetDescription();
   }
 }

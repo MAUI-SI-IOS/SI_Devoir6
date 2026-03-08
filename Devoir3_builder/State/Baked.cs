@@ -1,5 +1,4 @@
-﻿
-using Devoir3_builder.data;
+﻿using Devoir3_builder.data;
 
 namespace Devoir3_builder.State
 {

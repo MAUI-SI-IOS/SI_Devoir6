@@ -19,7 +19,7 @@ namespace Devoir3_builder.Handler
 
             order.state.Process(order);
             order.Notify("validating pizza order");
-            
+            Console.WriteLine();
             return next is not null ? next.Handle(order) : order;
         }
     }

@@ -21,6 +21,7 @@ namespace Devoir3_builder.Handler
 
             order.state.Process(order);
             order.Notify("pizza est entrain d'etre packed");
+            Console.WriteLine();
 
             return next is not null ? next.Handle(order) : order;
         }

@@ -19,7 +19,7 @@ void test()
   //2- ajouter 2 extra Decorator
   var cheesyPizza = new ExtraCheeseDecorator(simplePizza); 
   var finalPizza  = new GluttenFreeDecorator(cheesyPizza); 
-  Console.WriteLine("Pizza ordered"+finalPizza.GetDescription());
+  Console.WriteLine("Pizza ordered: "+finalPizza.GetDescription()+"prix total: "+finalPizza.GetPrice());
 
   var order  = new PizzaOrder(finalPizza);
 
@@ -34,19 +34,19 @@ void test()
 
 
   //4- faire la chain & executer la chain
-  var _1 = new ValidateOrderHandler();
-  var _2 = new PrepareHandler();
-  var _3 = new BakeHandler();
-  var _4 = new CutHandler();
-  var _5 = new PackHandler();
-  var _6 = new DispatchHandler(); 
-  _5.Next = _6;
-  _4.Next = _5;
-  _3.Next = _4;
-  _2.Next = _3;
-  _1.Next = _2;
+  var orderHandler = new ValidateOrderHandler();
+  var prepareHandler = new PrepareHandler();
+  var bakeHandler = new BakeHandler();
+  var cutHandler = new CutHandler();
+  var packHandler = new PackHandler();
+  var dispatchHandler = new DispatchHandler(); 
+  packHandler.Next = dispatchHandler;
+  cutHandler.Next = packHandler;
+  bakeHandler.Next = cutHandler;
+  prepareHandler.Next = bakeHandler;
+  orderHandler.Next = prepareHandler;
 
-  _1.Handle(order);
+  orderHandler.Handle(order);
   
   Console.WriteLine("------------- Done --------------");
 

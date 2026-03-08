@@ -34,7 +34,6 @@ namespace Devoir3_builder.data
         }
         public int GetPrice() {
           return prix;
-
         }
         public string GetDescription() {
           return this.ToString();
@@ -48,8 +47,7 @@ namespace Devoir3_builder.data
                         Pate: {pate},
                         Sauce: {sauce},
                         Garnitures: {garnitures},
-                        Prix: {this.GetPrice()}
-                    ";
+                     ";
         }
     
 
