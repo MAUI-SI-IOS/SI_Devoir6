@@ -1,11 +1,9 @@
 ﻿using Devoir3_builder.State;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Devoir6.decorator;
 
 namespace Devoir3_builder.data
 {
-    public class Pizza
+    public class Pizza:IPizzaDecorator
     {
 
         public required IOrderState state;
@@ -14,9 +12,9 @@ namespace Devoir3_builder.data
         string pate;
         string sauce;
         string garnitures;
-        decimal prix;
+        int prix;
 
-        public void setPrix(decimal prix)
+        public void setPrix(int prix)
         {
             this.prix = prix;
         }
@@ -37,6 +35,14 @@ namespace Devoir3_builder.data
         {
             this.garnitures = garnitures;
         }
+        public int GetPrice() {
+          return (this.pizza != null ? pizza.GetPrice() : 0) + prix;
+
+        }
+        public string GetDescription() {
+          return (this.pizza != null ? pizza.GetDescription() : 0) + this.ToString();
+
+        }
 
         public override string ToString() // pour tester
         {
@@ -45,10 +51,10 @@ namespace Devoir3_builder.data
                         Pate: {pate},
                         Sauce: {sauce},
                         Garnitures: {garnitures},
-                        Prix: {prix}
+                        Prix: {this.GetPrice()}
                     ";
         }
-
+    
 
 
        public enum Grandeur
