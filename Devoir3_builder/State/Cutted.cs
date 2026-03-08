@@ -1,16 +1,17 @@
 ﻿
 using Devoir3_builder.data;
+using Devoir3_builder.Data;
 
 namespace Devoir3_builder.State
 {
-    internal class Cutted : IPizzaState
+    internal class Cutted : IOrderState
     {
         private Cutted() { }
-        public readonly static IPizzaState Instance = new Cutted();
+        public readonly static IOrderState Instance = new Cutted();
 
-        public void Process(Pizza pizza)
+        public void Process(PizzaOrder order)
         {
-            pizza.state = Packed.Instance;
+            order.state = Packed.Instance;
         }
     }
 }

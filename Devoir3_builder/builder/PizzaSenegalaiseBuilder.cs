@@ -33,5 +33,10 @@ namespace Devoir3_builder.builder
         {
             return this.pizza;
         }
+
+        public IPizzaBuilder setSize(Pizza.Grandeur grandeur)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

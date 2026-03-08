@@ -8,7 +8,7 @@ namespace Devoir3_builder.data
     public class Pizza
     {
 
-        public required IPizzaState state;
+        public required IOrderState state;
 
         Grandeur grandeur;
         string pate;
